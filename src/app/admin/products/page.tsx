@@ -133,7 +133,7 @@ export default function Products() {
         in_stock: productInStock,
         category: productCategory,
       };
-      const response = await fetch(`/api/products/${selectedProductId}`, {
+      const response = await fetch(`/api/products/₹{selectedProductId}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -159,7 +159,7 @@ export default function Products() {
   const handleDeleteProduct = useCallback(async () => {
     if (!productToDelete) return;
     try {
-      const response = await fetch(`/api/products/${productToDelete.id}`, {
+      const response = await fetch(`/api/products/₹{productToDelete.id}`, {
         method: "DELETE",
       });
 
@@ -353,7 +353,7 @@ export default function Products() {
                       {product.name}
                     </TableCell>
                     <TableCell>{product.description}</TableCell>
-                    <TableCell>${product.price.toFixed(2)}</TableCell>
+                    <TableCell>₹{product.price.toFixed(2)}</TableCell>
                     <TableCell>{product.in_stock}</TableCell>
                     <TableCell>
                       <div className="flex items-center gap-2">

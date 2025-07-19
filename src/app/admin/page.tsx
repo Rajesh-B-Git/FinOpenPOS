@@ -96,10 +96,10 @@ export default function Page() {
         <Card>
           <CardHeader className="flex flex-row items-center justify-between pb-2">
             <CardTitle className="text-sm font-medium">Total Revenue</CardTitle>
-            <DollarSignIcon className="w-4 h-4 text-muted-foreground" />
+            <IndianRuppeeIcon className="w-4 h-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">${totalRevenue.toFixed(2)}</div>
+            <div className="text-2xl font-bold">₹{totalRevenue.toFixed(2)}</div>
           </CardContent>
         </Card>
         <Card>
@@ -107,19 +107,19 @@ export default function Page() {
             <CardTitle className="text-sm font-medium">
               Total Expenses
             </CardTitle>
-            <DollarSignIcon className="w-4 h-4 text-muted-foreground" />
+            <IndianRuppeeIcon className="w-4 h-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">${totalExpenses.toFixed(2)}</div>
+            <div className="text-2xl font-bold">₹{totalExpenses.toFixed(2)}</div>
           </CardContent>
         </Card>
         <Card>
           <CardHeader className="flex flex-row items-center justify-between pb-2">
             <CardTitle className="text-sm font-medium">Total Profit (selling)</CardTitle>
-            <DollarSignIcon className="w-4 h-4 text-muted-foreground" />
+            <IndianRuppeeIcon className="w-4 h-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">${totalProfit.toFixed(2)}</div>
+            <div className="text-2xl font-bold">₹{totalProfit.toFixed(2)}</div>
           </CardContent>
         </Card>
       </div>
@@ -158,7 +158,7 @@ export default function Page() {
         <Card>
           <CardHeader className="flex flex-row items-center justify-between pb-2">
             <CardTitle className="text-sm font-medium">Cash Flow</CardTitle>
-            <DollarSignIcon className="w-4 h-4 text-muted-foreground" />
+            <IndianRuppeeIcon className="w-4 h-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
             <LinechartChart data={cashFlow} className="aspect-auto" />
@@ -220,7 +220,7 @@ function BarchartChart({ data, ...props }: { data: any[] } & React.HTMLAttribute
   );
 }
 
-function DollarSignIcon(props: any) {
+function IndianRuppeeIcon(props: any) {
   return (
     <svg
       {...props}
@@ -234,8 +234,8 @@ function DollarSignIcon(props: any) {
       strokeLinecap="round"
       strokeLinejoin="round"
     >
-      <line x1="12" x2="12" y1="2" y2="22" />
-      <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+      {/* <line x1="12" x2="12" y1="2" y2="22" /> */}
+      <path d="M7 13h3.75c1.393 0 2.728-.474 3.713-1.318C15.447 10.838 16 9.693 16 8.5c0-1.193-.553-2.338-1.537-3.182C13.478 4.474 12.143 4 10.75 4H7M7 13l8.2 7M7 8.5h11M11 4h7" />
     </svg>
   );
 }
@@ -308,7 +308,7 @@ function PiechartcustomChart({ data, ...props }: { data: Record<string, number> 
   const chartData = Object.entries(data).map(([category, value]) => ({
     category,
     value,
-    fill: `var(--color-${category})`,
+    fill: `var(--color-₹{category})`,
   }));
 
   const chartConfig = Object.fromEntries(
@@ -316,7 +316,7 @@ function PiechartcustomChart({ data, ...props }: { data: Record<string, number> 
       category,
       {
         label: category,
-        color: `hsl(var(--chart-${index + 1}))`,
+        color: `hsl(var(--chart-₹{index + 1}))`,
       },
     ])
   ) as ChartConfig;

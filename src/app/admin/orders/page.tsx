@@ -154,7 +154,7 @@ export default function OrdersPage() {
         status: newOrderStatus,
         created_at: orders.find(o => o.id === selectedOrderId)?.created_at, // Preserve the original created_at
       };
-      const response = await fetch(`/api/orders/${selectedOrderId}`, {
+      const response = await fetch(`/api/orders/₹{selectedOrderId}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -178,7 +178,7 @@ export default function OrdersPage() {
   const handleDeleteOrder = useCallback(async () => {
     if (!orderToDelete) return;
     try {
-      const response = await fetch(`/api/orders/${orderToDelete.id}`, {
+      const response = await fetch(`/api/orders/₹{orderToDelete.id}`, {
         method: "DELETE",
       });
 
@@ -302,7 +302,7 @@ export default function OrdersPage() {
                 <TableRow key={order.id}>
                   <TableCell>{order.id}</TableCell>
                   <TableCell>{order.customer.name}</TableCell>
-                  <TableCell>${order.total_amount.toFixed(2)}</TableCell>
+                  <TableCell>₹{order.total_amount.toFixed(2)}</TableCell>
                   <TableCell>{order.status}</TableCell>
                   <TableCell>{order.created_at}</TableCell>
                   <TableCell>
@@ -332,7 +332,7 @@ export default function OrdersPage() {
                         <Trash2 className="w-4 h-4" />
                         <span className="sr-only">Delete</span>
                       </Button>
-                      <Link href={`/admin/orders/${order.id}`} prefetch={false}>
+                      <Link href={`/admin/orders/₹{order.id}`} prefetch={false}>
                         <Button size="icon" variant="ghost">
                           <EyeIcon className="w-4 h-4" />
                           <span className="sr-only">View</span>

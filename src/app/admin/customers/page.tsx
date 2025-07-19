@@ -170,7 +170,7 @@ export default function CustomersPage() {
         phone: newCustomerPhone,
         status: newCustomerStatus,
       };
-      const response = await fetch(`/api/customers/${selectedCustomerId}`, {
+      const response = await fetch(`/api/customers/₹{selectedCustomerId}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -205,7 +205,7 @@ export default function CustomersPage() {
   const handleDeleteCustomer = useCallback(async () => {
     if (!customerToDelete) return;
     try {
-      const response = await fetch(`/api/customers/${customerToDelete.id}`, {
+      const response = await fetch(`/api/customers/₹{customerToDelete.id}`, {
         method: "DELETE",
       });
 
