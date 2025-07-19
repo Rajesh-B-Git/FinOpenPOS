@@ -22,7 +22,7 @@ import {
   Package2Icon,
   SearchIcon,
   LayoutDashboardIcon,
-  DollarSignIcon,
+  IndianRupee,
   PackageIcon,
   ShoppingCartIcon,
   UsersIcon,
@@ -116,7 +116,7 @@ export function AdminLayout({ children }: { children: React.ReactNode }) {
                         : "text-muted-foreground"
                     } transition-colors hover:text-foreground md:h-8 md:w-8`}
                   >
-                    <DollarSignIcon className="h-5 w-5" />
+                    <IndianRupee className="h-5 w-5" />
                     <span className="sr-only">Cashier</span>
                   </Link>
                 </TooltipTrigger>
